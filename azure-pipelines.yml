@@ -12,8 +12,10 @@ jobs:
     matrix:
       Python27:
         python.version: '2.7'
+        tox.python.version: 'py27'
       Python37:
         python.version: '3.7'
+        tox.python.version: 'py37'
     maxParallel: 2
 
   steps:
@@ -26,5 +28,5 @@ jobs:
     displayName: 'Install dependencies'
 
   - script: |
-      tox -e $(python.version)
+      tox -e $(tox.python.version)
     displayName: 'Unit test'
